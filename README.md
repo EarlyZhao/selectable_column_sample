@@ -28,13 +28,16 @@ rails c
 
 excute:
 ```pry
-SelectableColumn::Test.user_selectable   
+# prelod all associations data at once
+SelectableColumn::Test.user_selectable
+
+# preload in batchs
+SelectableColumn::Test.user_selectable_batchs
 ```
 
-And, you can see the result from the logs, if the development mode on.
+And, you can see the results from the logs, if the development mode on.
 
 ### 局限
 
 - 不能再进行懒加载了
-- 由于第一条，关联关系提取需要打包一次性执行
 - 在提取通过```through```定义的关联关系时，该机制不起作用，仍然会提取全部字段
